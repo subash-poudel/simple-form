@@ -3,6 +3,7 @@ import { useFormStore } from "../stores/useFormStore";
 
 export const Form = () => {
   const data = useFormStore();
+
   const onFormSubmit = () => {
     console.log("on form submit");
   };
