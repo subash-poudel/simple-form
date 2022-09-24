@@ -1,15 +1,14 @@
 import { Box, Button, TextField } from "@mui/material";
-import { FormEvent } from "react";
+import { useFormStore } from "../stores/useFormStore";
 
 export const Form = () => {
-  const onFormSubmit = (e: FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-
-    console.log(e.target);
+  const data = useFormStore();
+  const onFormSubmit = () => {
+    console.log("on form submit");
   };
 
   return (
-    <form onSubmit={onFormSubmit}>
+    <form>
       <Box>
         <TextField
           fullWidth
@@ -17,6 +16,8 @@ export const Form = () => {
           name="email"
           label="Email"
           margin="normal"
+          value={data.username}
+          onChange={(e) => data.setUsername(e.target.value)}
         />
         <TextField
           fullWidth
@@ -24,9 +25,11 @@ export const Form = () => {
           name="password"
           label="Password"
           margin="normal"
+          value={data.password}
+          onChange={(e) => data.setPassword(e.target.value)}
         />
 
-        <Button variant="contained" fullWidth>
+        <Button variant="contained" fullWidth onClick={(e) => onFormSubmit()}>
           Submit
         </Button>
       </Box>
