@@ -1,15 +1,12 @@
 import { Box, Button, TextField } from "@mui/material";
-import { FormEvent } from "react";
 
 export const Form = () => {
-  const onFormSubmit = (e: FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-
-    console.log(e.target);
+  const onFormSubmit = () => {
+    console.log("on form submit");
   };
 
   return (
-    <form onSubmit={onFormSubmit}>
+    <form>
       <Box>
         <TextField
           fullWidth
@@ -26,7 +23,7 @@ export const Form = () => {
           margin="normal"
         />
 
-        <Button variant="contained" fullWidth>
+        <Button variant="contained" fullWidth onClick={e => onFormSubmit()}>
           Submit
         </Button>
       </Box>
