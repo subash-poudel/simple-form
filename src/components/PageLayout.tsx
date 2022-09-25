@@ -1,6 +1,7 @@
 import { Grid } from "@mui/material";
 import { Form } from "./Form";
-import { Success } from "./Success";
+import { User } from "./User";
+import { UserNotFound } from "./UserNotFound";
 
 export const PageLayout = () => {
   return (
@@ -9,7 +10,8 @@ export const PageLayout = () => {
         <Grid item xs={2}></Grid>
         <Grid item xs={8}>
           <Form />
-          <Success />
+          <User />
+          <UserNotFound />
         </Grid>
         <Grid item xs={2}></Grid>
       </Grid>
